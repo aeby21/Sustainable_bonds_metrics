@@ -18,7 +18,8 @@ services:
       - "8080:8080"
 
   jupyter-book:
-    image: jupyter/datascience-notebook:x86_64-ubuntu-22.04
+    image: jupyter-notebook
     restart: always
+
     ports:
       - "8888:8888"
