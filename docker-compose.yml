@@ -20,6 +20,8 @@ services:
   jupyter-book:
     image: jupyter-notebook
     restart: always
+    volumes:
+      - "C:/Users/aeby2/PycharmProjects/Sustainable_bonds_metrics/Data:/home/jovyan/work"
 
     ports:
       - "8888:8888"
