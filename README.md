@@ -17,10 +17,15 @@ docker-compose up --build
 ```
 It will start an instance of postgres, jupyter and adminer to see the postgres tables.
 
-![crypto carry performance](README_images/jupyter_link.png)
+Now you can head to the jupyter notebook using the link including the token:
 
-**first**, environment variable `PROJECT_ROOT` must point to the project folder; 
-you can set it in the .env file, and python will rely on `python-dotenv` to set it.
+![jupyter link](README_images/jupyter_link.PNG "jupyter link")
+
+In the jupyter notebook you can open `work` and the file `excel2sql.ipynb`. stepping through it will transfer your data into a SQL-Table. 
+
+You can then see your data table in the adminer. To do so, you have to got o the port 8080 in your browser: `http://localhost:8080`. You will then see a login window, where you have to input the following parameters:
+
+![jupyter link](README_images/jupyter_link.PNG "jupyter link")
 
 **second**, the necessary virtual environment can be created from `requirements.txt`: 
 ```bash
