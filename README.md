@@ -1,19 +1,23 @@
-# fx strategies in cryptocurrency space
+# Metrics of Sustainable Bonds
 
-(how) does carry trade work in the crypto universe?
+Intro from Patrick
 
-I investigate if the simple carry trade strategy is implementable in the cryptocurrency space and provide instructions and fully replicable code to replicate my findings; using data from the Kraken exchange, I show that sorting cryptocurrencies on the analogue of the fiat interest rate results in a statistically and economically meaningful excess returns and Sharpe ratios; my finding thus adds another asset to the universe of those where the carry trade anomaly is pronounced.
-
-go to [walkthrough](./walkthrough.ipynb) for results.
+go to [walkthrough](./Data/green_metrics_sustainable_bonds.ipynb) for results.
 
 ![crypto carry performance](output/figures/carry-pnl.png "crypto carry performance")
 
 ## requirements
-there are some tests which will be passed once the rest of this section has been 
-dealt with:
+
+We are running everything in a Docker container. Everything is handled in the docker-compose file. 
+IMPORTANT: change the Volumes path in the docker-compose to point to your file location, so all changes you do in the jupyter notebook are directly saved. Otherwise you have to upload the files and changes are not saved.
+
+then you can simply start the container with:
 ```bash
-python -m unittest discover
+docker-compose up --build
 ```
+It will start an instance of postgres, jupyter and adminer to see the postgres tables.
+
+![crypto carry performance](README_images/jupyter_link.png)
 
 **first**, environment variable `PROJECT_ROOT` must point to the project folder; 
 you can set it in the .env file, and python will rely on `python-dotenv` to set it.
