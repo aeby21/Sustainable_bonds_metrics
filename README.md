@@ -7,7 +7,7 @@ In this project, we try to find differences in the sustainable bonds and the fin
 
 go to [walkthrough](./Data/green_metrics_sustainable_bonds.ipynb) for results.
 
-## requirements
+## walkthrough
 
 We are running everything in a Docker container. Everything is handled in the docker-compose file. 
 IMPORTANT: change the Volumes path in the docker-compose to point to your file location, so all changes you do in the jupyter notebook are directly saved. Otherwise you have to upload the files and changes are not saved.
