@@ -1,66 +1,29 @@
-# fx strategies in cryptocurrency space
+# Metrics of Sustainable Bonds
+## Intro
+Sustainable debt security instruments (bonds) are increasingly becoming one focus of the extensive sustainable finance discussion worldwide. Bonds with a specific, sustainable purpose (e.g. Green Bonds (GB)) as well as bonds with a general purpose but linked to one or more sustainability goals (Sustainability Linked Bonds (SLBs)) are becoming increasingly popular on the capital market (as shown in figure 1). The decline in 2022 is due to the overall difficulties in the bond market due to increasing interest rates. An important driver of this trend over the last two years is the demand from the (private-) investor side.
 
-(how) does carry trade work in the crypto universe?
+## Goal:
+In this project, we try to find differences in the sustainable bonds and the financials of the issuing companies. The main question is if there is a connection between the type of sustainable bond and the financial performance, size, cash flow, and profitability. The biggest challenge for this project is that data availability is restricted to users with access to common data providers, like Bloomberg or Refintitv Eikon. First, we therefore document the process of fetching the data from these platform for others to update or recreate our findings. Secondly, we provide the data downloaded on the date of this project for those without access to the data platforms.
 
-I investigate if the simple carry trade strategy is implementable in the cryptocurrency space and provide instructions and fully replicable code to replicate my findings; using data from the Kraken exchange, I show that sorting cryptocurrencies on the analogue of the fiat interest rate results in a statistically and economically meaningful excess returns and Sharpe ratios; my finding thus adds another asset to the universe of those where the carry trade anomaly is pronounced.
-
-go to [walkthrough](./walkthrough.ipynb) for results.
-
-![crypto carry performance](output/figures/carry-pnl.png "crypto carry performance")
+go to [walkthrough](./Data/green_metrics_sustainable_bonds.ipynb) for results.
 
 ## requirements
-there are some tests which will be passed once the rest of this section has been 
-dealt with:
+
+We are running everything in a Docker container. Everything is handled in the docker-compose file. 
+IMPORTANT: change the Volumes path in the docker-compose to point to your file location, so all changes you do in the jupyter notebook are directly saved. Otherwise you have to upload the files and changes are not saved.
+
+then you can simply start the container with:
 ```bash
-python -m unittest discover
+docker-compose up --build
 ```
+It will start an instance of postgres, jupyter and adminer to see the postgres tables.
 
-**first**, environment variable `PROJECT_ROOT` must point to the project folder; 
-you can set it in the .env file, and python will rely on `python-dotenv` to set it.
+Now you can head to the jupyter notebook using the link including the token:
 
-**second**, the necessary virtual environment can be created from `requirements.txt`: 
-```bash
-python3 -m venv .venv; source .venv/bin/activate; pip install -r requirements.txt
-```
-to create a virtual environment in `$PROJECT_ROOT/.venv` and install all packages;
-please don't forget to activate it every time!
+![jupyter link](README_images/jupyter_link.PNG "jupyter link")
 
-**third**, package [foolbox](https://github.com/ipozdeev/foolbox) must be downloaded to where 
-python can find it.
+In the jupyter notebook you can open `work` and the file `excel2sql.ipynb`. stepping through it will transfer your data into a SQL-Table. 
 
-**fourth**, a certain data folder layout must be adhered to; you can create it with
-```bash
-make data_dir_layout
-```
+You can then see your data table in the adminer. To do so, you have to got o the port 8080 in your browser: `http://localhost:8080`. You will then see a login window, where you have to input the following parameters:
 
-**fifth**, you have to download
-spot and perpetual futures prices from Kraken: 
-- download the five [.zip archives](https://support.kraken.com/hc/en-us/articles/360047124832-Downloadable-historical-OHLCVT-Open-High-Low-Close-Volume-Trades-data) 
-of spot prices from 'Separate ZIP files' &ndash; one for each cryptocurrency &ndash; and place them in `data/raw/spot/kraken/`;
-- download all .csv.zip archives following the link [here](https://support.kraken.com/hc/en-us/articles/360022835871-Historical-Data)
-and place them in`data/raw/perpetual/kraken/`;
-
-```bash
-$ ls data/raw/spot/kraken
-BCH_OHLCT.zip
-ETH_OHLCT.zip
-LTC_OHLCT.zip
-XBT_OHLCT.zip
-XRP_OHLCT.zip
-```
-
-```bash
-$ ls data/raw/perpetual/kraken
-matches_history_2018-01.csv
-matches_history_2018-02.csv
-...
-```
-
-after this the following should work when run in the command line:
-```bash
-make prepare_data
-```
-
-this will create several .ftr (feather) data files in `data/prepared/spot(perpetual)/kraken/` 
-that are used by functions from `src.datafeed_.kraken.downstream`
- 
+![jupyter link](README_images/jupyter_link.PNG "jupyter link")
