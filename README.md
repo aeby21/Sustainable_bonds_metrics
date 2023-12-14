@@ -5,8 +5,6 @@ Sustainable debt security instruments (bonds) are increasingly becoming one focu
 ## Goal:
 In this project, we try to find differences in the sustainable bonds and the financials of the issuing companies. The main question is if there is a connection between the type of sustainable bond and the financial performance, size, cash flow, and profitability. The biggest challenge for this project is that data availability is restricted to users with access to common data providers, like Bloomberg or Refintitv Eikon. First, we therefore document the process of fetching the data from these platform for others to update or recreate our findings. Secondly, we provide the data downloaded on the date of this project for those without access to the data platforms.
 
-go to [walkthrough](./Data/green_metrics_sustainable_bonds.ipynb) for results.
-
 ## walkthrough
 
 We are running everything in a Docker container. Everything is handled in the docker-compose file. 
