@@ -26,7 +26,7 @@ In the jupyter notebook you can open `work` and the file `excel2sql.ipynb`. step
 
 You can then see your data table in the adminer. To do so, you have to got o the port 8080 in your browser: `http://localhost:8080`. You will then see a login window, where you have to input the following parameters:
 
-![jupyter link](README_images/jupyter_link.PNG "jupyter link")
+![Adminer_login](README_images/Adminer_login.PNG "adminer login")
 
 The password is `sustainable`.
 
