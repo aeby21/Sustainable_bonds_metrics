@@ -14,7 +14,7 @@ then you can simply start the container with:
 ```bash
 docker-compose up --build
 ```
-It will start an instance of postgres, jupyter and adminer to see the postgres tables.
+It will start an instance of postgres, jupyter and adminer to see the postgres tables. It will at the same time intall the package `psycopg2` on the jupyter image to access the PostgreSQL database.
 
 Now you can head to the jupyter notebook using the link including the token:
 
